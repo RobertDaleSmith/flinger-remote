@@ -1,0 +1,32 @@
+{
+  "name": "Flinger.co Remote",
+  "version": "1.6.7",
+  "browser_action": {
+        "default_icon": {
+            "19": "icon_19.png",
+            "38": "icon_38.png"
+        },
+        "default_title": "Flinger.co Remote",     
+        "default_popup": "options.html"        
+  },
+  "description": "Fling videos to any screen with Flinger.co",
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://gdata.youtube.com/ https://www.slideshare.net/ https://vimeo.com/ https://ssl.google-analytics.com; object-src 'self'",
+  
+  "manifest_version": 2,
+  "background": {   "scripts": [  "js/bcsocket.js",                                  
+                                  "js/share.js",
+                                  "js/json.js",
+                                  "js/jquery-1.9.1.min.js",
+                                  "js/background.js"  ]   },
+  
+  "options_page" : "options.html",
+  "icons": {
+    "128": "icon_128.png"
+  },
+  "permissions": [
+    "unlimitedStorage",
+    "notifications",
+    "contextMenus"
+  ],
+  "homepage_url": "http://flinger.co/"
+}

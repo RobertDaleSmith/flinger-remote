@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>NEWTON-PC</Machine>
+    <WindowsUser>Robert Smith</WindowsUser>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <RegisteredManifestChecksum>6C641043A09C000483D2FC5F159903D401BBEB24E84A4F72C99250D60C243C14</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>Microsoft.SDKSamples.ShareTarget.JS_1.0.0.0_neutral__8wekyb3d8bbwe</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>Microsoft.SDKSamples.ShareTarget.JS_8wekyb3d8bbwe!Microsoft.SDKSamples.ShareTargetSample</RegisteredUserModeAppID>
+    <RegisteredPackageID>Microsoft.SDKSamples.ShareTarget.JS</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-03-22T00:55:40.910</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\canvas.js">
+      <PackagePath>canvas.js</PackagePath>
+      <Modified>2013-03-21T22:07:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\js\bcsocket.js">
+      <PackagePath>js\bcsocket.js</PackagePath>
+      <Modified>2013-03-12T18:57:02.932</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\js\jquery-1.9.1.min.js">
+      <PackagePath>js\jquery-1.9.1.min.js</PackagePath>
+      <Modified>2013-03-12T19:07:20.500</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\js\share.js">
+      <PackagePath>js\share.js</PackagePath>
+      <Modified>2013-03-12T18:57:18.204</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\js\target.js">
+      <PackagePath>js\target.js</PackagePath>
+      <Modified>2013-03-20T00:55:43.981</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\js\textarea.js">
+      <PackagePath>js\textarea.js</PackagePath>
+      <Modified>2013-03-12T18:57:24.558</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\js\default.js">
+      <PackagePath>js\default.js</PackagePath>
+      <Modified>2013-03-21T08:49:35.030</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\sample-utils\sample-utils.js">
+      <PackagePath>sample-utils\sample-utils.js</PackagePath>
+      <Modified>2013-03-19T21:19:46.781</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\css\target.css">
+      <PackagePath>css\target.css</PackagePath>
+      <Modified>2013-03-12T22:57:49.725</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\style_target.css">
+      <PackagePath>style_target.css</PackagePath>
+      <Modified>2013-03-21T08:42:11.651</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\style.css">
+      <PackagePath>style.css</PackagePath>
+      <Modified>2013-03-22T00:49:35.278</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\css\base-sdk.css">
+      <PackagePath>css\base-sdk.css</PackagePath>
+      <Modified>2013-03-12T22:57:49.640</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\sample-utils\sample-utils.css">
+      <PackagePath>sample-utils\sample-utils.css</PackagePath>
+      <Modified>2013-03-12T22:57:50.915</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\css\default.css">
+      <PackagePath>css\default.css</PackagePath>
+      <Modified>2013-03-12T22:57:49.681</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\images\flinger_paired_no.png">
+      <PackagePath>images\flinger_paired_no.png</PackagePath>
+      <Modified>2013-03-21T21:43:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\images\flinger_paired_yes.png">
+      <PackagePath>images\flinger_paired_yes.png</PackagePath>
+      <Modified>2013-03-21T21:44:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\images\mote-logo.png">
+      <PackagePath>images\mote-logo.png</PackagePath>
+      <Modified>2013-03-22T00:41:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\images\sprites.png">
+      <PackagePath>images\sprites.png</PackagePath>
+      <Modified>2013-03-21T22:07:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\images\microsoft-sdk.png">
+      <PackagePath>images\microsoft-sdk.png</PackagePath>
+      <Modified>2013-03-12T22:57:49.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\images\placeholder-sdk.png">
+      <PackagePath>images\placeholder-sdk.png</PackagePath>
+      <Modified>2013-03-12T22:57:49.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\images\smallTile-sdk.png">
+      <PackagePath>images\smallTile-sdk.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-03-21T07:49:33.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\images\splash-sdk.png">
+      <PackagePath>images\splash-sdk.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-03-21T07:38:25.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\images\squareTile-sdk.png">
+      <PackagePath>images\squareTile-sdk.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-03-21T07:12:24.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\images\storeLogo-sdk.png">
+      <PackagePath>images\storeLogo-sdk.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-03-21T07:16:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\images\tile-sdk.png">
+      <PackagePath>images\tile-sdk.png</PackagePath>
+      <Modified>2013-03-12T22:57:49.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\images\user.png">
+      <PackagePath>images\user.png</PackagePath>
+      <Modified>2013-03-12T22:57:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\images\windows-sdk.png">
+      <PackagePath>images\windows-sdk.png</PackagePath>
+      <Modified>2013-03-12T22:57:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\target.html">
+      <PackagePath>target.html</PackagePath>
+      <Modified>2013-03-21T08:50:40.333</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\default.html">
+      <PackagePath>default.html</PackagePath>
+      <Modified>2013-03-22T00:47:09.691</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\sample-utils\footer.html">
+      <PackagePath>sample-utils\footer.html</PackagePath>
+      <Modified>2013-03-12T22:57:50.876</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\sample-utils\header.html">
+      <PackagePath>sample-utils\header.html</PackagePath>
+      <Modified>2013-03-12T22:57:50.894</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\sample-utils\scenario-select.html">
+      <PackagePath>sample-utils\scenario-select.html</PackagePath>
+      <Modified>2013-03-19T09:10:36.449</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Robert Smith\Dropbox\_Flinger\Flinger_Win8_JS\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2013-03-22T00:42:12.402</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Microsoft.WinJS.1.0\1.0\">
+      <Name>Microsoft.WinJS.1.0</Name>
+      <Version>1.0.8514.0</Version>
+      <Architecture>Neutral</Architecture>
+      <FrameworkIdentity>Name=Microsoft.WinJS.1.0, MinVersion=1.0.8514.0</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Microsoft.WinJS.1.0\1.0\Microsoft.WinJS.1.0.appx</AppxLocation>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>

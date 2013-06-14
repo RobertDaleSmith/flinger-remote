@@ -1,0 +1,236 @@
+﻿<!--
+THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+PARTICULAR PURPOSE.
+
+Copyright (c) Microsoft Corporation. All rights reserved
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Flinger</title>
+
+    <!-- WinJS references -->
+    <link rel="stylesheet" href="//Microsoft.WinJS.1.0/css/ui-light.css" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <!-- SDK sample framework references -->
+    <link rel="stylesheet" href="/sample-utils/sample-utils.css" />
+    <link rel="stylesheet" href="/css/default.css" />
+    <script src="/sample-utils/sample-utils.js"></script>
+    <script src="/js/default.js"></script>
+
+    <script src="/js/bcsocket.js"></script>
+    <script src="/js/share.js"></script>
+    <script src="/js/textarea.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body role="application">
+    <div id="rootGrid">
+
+        <div id="header_container">
+            <div id="header_logo"></div>
+            <div id="header_title">Flinger</div>
+        </div>
+        <div id="intro_container">
+
+            <div id="intro_1">1.</div>
+            <div id="intro_1_text">To get started, open your smart TV's browser and go to</div>
+            <div id="intro_tv_url">http://tv.flinger.co/</div>
+            <div id="intro_2">2.</div>
+            <div id="intro_2_text">Enter the 6 digit code that appears on your TV's browser</div>
+            <input id="hashtag_input" maxlength="6" \>
+            <button name="connect" id="connect_button" type="button" onclick=connectToHash()>connect</button>
+            <button name="disconnect" id="disconnect_button" onclick=disconnectFromHash()>disconnect</button>
+            <div id="loaderImage"></div>
+
+            <div id="intro_paired_yes_box">
+                <div id="pairYesIcon"></div>
+                <div class="pairTitle" id="paired_Title">Paired</div>
+                <div class="pairLabel">Pairing Successful</div>
+            </div>
+            <div id="intro_paired_not_box">
+                <div id="pairNoIcon"></div>
+                <div class="pairTitle">Not Paired</div>
+                <div class="pairLabel">Open the Flinger app and enter the code that appears on your TV screen to pair</div>
+            </div>
+
+        </div>
+
+        <div style="display:inline-block;margin-top:150px;margin-left:100px;">
+
+            <textarea id="data">Connecting, please stand by...</textarea>
+            <script>
+                console.log("Hey!")
+                // Debug
+                var debug = document.getElementById("debug");
+                // /Debug
+
+                var prevConnection = false;
+                var prevHasTag = "0000";
+                var data = document.getElementById("data");
+                var docname = document.location.hash.substring(1, 7); // Enter Hashkey - the user's file
+
+                function uid() {
+                    return ("0000" + (Math.random() * Math.pow(36, 6) << 0).toString(36)).substr(-6)
+                };
+
+                function openDocument(docName) {
+                    console.log("Connecting to " + docname);
+
+
+                    
+
+                    sharejs.open(docName, 'text', 'http://flinger.cloudapp.net/channel', function (error, shareDocument) {
+                        if (error) {
+                            
+                            data.content = error;
+                            console.log("Connecting error " + error);
+                           
+                        } else {
+                            //Connection successful
+                            console.log("Connected to " + docName);
+                            document.getElementById('loaderImage').style.display = 'none';
+                            document.getElementById('intro_paired_not_box').style.display = 'none';
+                            document.getElementById('intro_paired_yes_box').style.display = 'block';
+                            document.getElementById('paired_Title').innerHTML = "Paired to #" + docName;
+                            document.getElementById('disconnect_button').style.display = 'block';
+                            document.getElementById('hashtag_input').disabled = 'true';
+
+                            // Attaching the ShareJS file to the editor
+                            shareDocument.attach_textarea(data);
+                            prevConnection = true;
+                            prevHasTag = docName;
+
+                            
+                            
+                        }
+
+                    });
+                };
+
+                function connectToHash() {
+                    document.getElementById('loaderImage').style.display = 'block'
+
+                    docname = document.getElementById("hashtag_input").value;
+
+                    docname = docname.toLowerCase();
+                    document.getElementById("hashtag_input").value = docname;
+
+                    document.location.hash = docname;
+                    console.log("Tryin to open " + docname);
+                    openDocument(docname);
+
+
+                };
+
+                function disconnectFromHash() {
+                    
+                    console.log("Disconnecting from " + prevHasTag);
+                    document.getElementById('loaderImage').style.display = 'block';
+                    sharejs.open(prevHasTag, 'text', 'http://flinger.cloudapp.net/channel', function (error, shareDocument) {
+                        if (error) {
+                            console.log("Disconnected error");
+                            data.content = error;
+                        } else {
+                            shareDocument.close();
+                            console.log("Disconnected from " + prevHasTag);
+                            document.getElementById('loaderImage').style.display = 'none';
+                            document.getElementById('disconnect_button').style.display = 'none';
+
+                            document.getElementById('loaderImage').style.display = 'none';
+                            document.getElementById('intro_paired_not_box').style.display = 'block';
+                            document.getElementById('intro_paired_yes_box').style.display = 'none';
+                            document.getElementById('hashtag_input').disabled = 'false';
+                            
+
+                            document.location.reload(true);
+                        }
+                        
+                    });
+                    prevConnection = false;
+
+                    
+
+                    document.getElementById("hashtag_input").value = "";
+
+                    
+
+
+                };
+
+
+                var textArea = document.getElementById("data");
+                var textAreaPrevText = textArea.value;
+                
+            </script>
+            <script type="text/javascript">
+
+                function alphaFilterKeypress(evt) {
+                    evt = evt || window.event;
+                    var charCode = evt.keyCode || evt.which;
+                    var charStr = String.fromCharCode(charCode);
+                    return /[a-z0-9_]/i.test(charStr);
+                }
+
+                window.onload = function () {
+                    var input = document.getElementById("hashtag_input");
+                    input.onkeypress = alphaFilterKeypress;
+                };
+
+            </script>   
+           
+            <script type="text/javascript" src="canvas.js"></script>
+            <script type="text/javascript">
+                var cSpeed = 5;
+                var cWidth = 32;
+                var cHeight = 32;
+                var cTotalFrames = 75;
+                var cFrameWidth = 32;
+                var cImageSrc = 'images/sprites.png';
+
+                var cImageTimeout = false;
+
+                function startAnimation() {
+
+                    document.getElementById('loaderImage').innerHTML = '<canvas id="canvas" width="' + cWidth + '" height="' + cHeight + '"><p>Your browser does not support the canvas element.</p></canvas>';
+
+                    //FPS = Math.round(100/(maxSpeed+2-speed));
+                    FPS = Math.round(100 / cSpeed);
+                    SECONDS_BETWEEN_FRAMES = 1 / FPS;
+                    g_GameObjectManager = null;
+                    g_run = genImage;
+
+                    g_run.width = cTotalFrames * cFrameWidth;
+                    genImage.onload = function () { cImageTimeout = setTimeout(fun, 0) };
+                    initCanvas();
+                }
+
+
+                function imageLoader(s, fun)//Pre-loads the sprites image
+                {
+                    clearTimeout(cImageTimeout);
+                    cImageTimeout = 0;
+                    genImage = new Image();
+                    genImage.onload = function () { cImageTimeout = setTimeout(fun, 0) };
+                    genImage.onerror = new Function('console.log(\'Could not load the image\')');
+                    genImage.src = s;
+                }
+
+                //The following code starts the animation
+                new imageLoader(cImageSrc, 'startAnimation()');
+            </script>
+
+
+        </div>
+
+
+        <!--div id="footer" data-win-control="WinJS.UI.HtmlControl" data-win-options="{uri: '/sample-utils/footer.html'}"></div-->
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="HTML5App1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    shell:SystemTray.IsVisible="False"
+    shell:SystemTray.BackgroundColor="#292b35">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="#292b35">
+
+        <Image Source="splash.png" Stretch="None" Margin="0,0,0,0"></Image>
+        <phone:WebBrowser x:Name="Browser"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          Loaded="Browser_Loaded"
+                          Navigating="Browser_Navigating"
+                          LoadCompleted="Browser_LoadCompleted"
+                          NavigationFailed="Browser_NavigationFailed"
+                          Opacity="0"
+                          Background="#292b35"
+                             />
+
+        
+    </Grid>
+
+    <!-- ApplicationBar -->
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar BackgroundColor="#292b35" IsVisible="False" IsMenuEnabled="True" Mode="Minimized">
+            <!--shell:ApplicationBarIconButton IconUri="/Assets/AppBar/appbar.back.rest.png" IsEnabled="True" Text="back" Click="BackApplicationBar_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/appbar.next.rest.png" IsEnabled="True" Text="forward" Click="ForwardApplicationBar_Click"/-->
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="refresh connection" Click="HomeMenuItem_Click" />
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

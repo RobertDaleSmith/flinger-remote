@@ -1,0 +1,25 @@
+body {
+    background-color: #ffffff;
+    overflow:hidden;
+    padding: 0px;
+    margin: 0px;
+}
+
+#data {
+    
+    position:absolute;
+    bottom:10px;
+    left:10px;
+    margin: 0px;
+    padding: 0px;
+    width: 480px;
+    height: 40px;
+}
+
+#videoDiv { 
+    margin-right: 3px;
+}
+
+#videoInfo {
+    margin-left: 3px;
+}

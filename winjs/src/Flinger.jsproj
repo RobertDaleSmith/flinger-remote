@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{00f5e538-e020-4d5d-a0f5-2035d6fa944a}</ProjectGuid>
+    <DefaultLanguage>en-US</DefaultLanguage>
+  </PropertyGroup>
+  <Import Condition="Exists('$(MSBuildExtensionsPath32)\$(MSBuildToolsVersion)\Microsoft.Common.props')" Project="$(MSBuildExtensionsPath32)\$(MSBuildToolsVersion)\Microsoft.Common.props" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).Default.props" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).props" />
+  <PropertyGroup>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <PackageCertificateThumbprint>9C5DA3B6D61CE391356AFB100480D5555187D6FD</PackageCertificateThumbprint>
+    <PackageCertificateKeyFile>Flinger_StoreKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppxManifest Include="package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Content Include="apple-touch-icon-114x114-precomposed.png" />
+    <Content Include="apple-touch-icon-144x144.png" />
+    <Content Include="apple-touch-icon-57x57-precomposed.png" />
+    <Content Include="apple-touch-icon-72x72-precomposed.png" />
+    <Content Include="css\style.css" />
+    <Content Include="css\target.css" />
+    <Content Include="tile-image-144.png" />
+    <Content Include="tile-image-144.scale-100.png" />
+    <Content Include="Win8_App_Icon_150.png" />
+    <None Include="Flinger_TemporaryKey.pfx" />
+    <None Include="Flinger_StoreKey.pfx" />
+    <Content Include="fav-icon-32.png" />
+    <Content Include="fav-icon-64.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="font\Eurostile_LT_Bold.eot" />
+    <Content Include="font\Eurostile_LT_Bold.ttf" />
+    <Content Include="font\Eurostile_LT_Bold.woff" />
+    <Content Include="font\Eurostile_LT_Bold_Condensed.eot" />
+    <Content Include="font\Eurostile_LT_Bold_Condensed.ttf" />
+    <Content Include="font\Eurostile_LT_Bold_Condensed.woff" />
+    <Content Include="font\Eurostile_LT_Bold_Extended.eot" />
+    <Content Include="font\Eurostile_LT_Bold_Extended.ttf" />
+    <Content Include="font\Eurostile_LT_Bold_Extended.woff" />
+    <Content Include="font\Eurostile_LT_Bold_Oblique.eot" />
+    <Content Include="font\Eurostile_LT_Bold_Oblique.ttf" />
+    <Content Include="font\Eurostile_LT_Bold_Oblique.woff" />
+    <Content Include="font\Eurostile_LT_Condensed.eot" />
+    <Content Include="font\Eurostile_LT_Condensed.ttf" />
+    <Content Include="font\Eurostile_LT_Condensed.woff" />
+    <Content Include="font\Eurostile_LT_Demi.eot" />
+    <Content Include="font\Eurostile_LT_Demi.ttf" />
+    <Content Include="font\Eurostile_LT_Demi.woff" />
+    <Content Include="font\Eurostile_LT_Demi_Oblique.eot" />
+    <Content Include="font\Eurostile_LT_Demi_Oblique.ttf" />
+    <Content Include="font\Eurostile_LT_Demi_Oblique.woff" />
+    <Content Include="font\Eurostile_LT_Extended.eot" />
+    <Content Include="font\Eurostile_LT_Extended.ttf" />
+    <Content Include="font\Eurostile_LT_Extended.woff" />
+    <Content Include="font\Eurostile_LT_Medium.eot" />
+    <Content Include="font\Eurostile_LT_Medium.ttf" />
+    <Content Include="font\Eurostile_LT_Medium.woff" />
+    <Content Include="font\Eurostile_LT_Oblique.eot" />
+    <Content Include="font\Eurostile_LT_Oblique.ttf" />
+    <Content Include="font\Eurostile_LT_Oblique.woff" />
+    <Content Include="icon_128.png" />
+    <Content Include="icon_16.png" />
+    <Content Include="icon_19.png" />
+    <Content Include="icon_38.png" />
+    <Content Include="icon_75.png" />
+    <Content Include="images\blank.png" />
+    <Content Include="images\button_sprites_dark.png" />
+    <Content Include="images\button_sprites_light.png" />
+    <Content Include="images\chat_icon.png" />
+    <Content Include="images\favicon_placeholder.png" />
+    <Content Include="images\flinger_co_text_logo.svg" />
+    <Content Include="images\fling_que_button.png" />
+    <Content Include="images\fling_que_button_hover.png" />
+    <Content Include="images\fling_uri_button.png" />
+    <Content Include="images\fling_uri_button_hover.png" />
+    <Content Include="images\flung_icon.png" />
+    <Content Include="images\invite_btn_icon_facebook.png" />
+    <Content Include="images\invite_btn_icon_googleplus.png" />
+    <Content Include="images\invite_btn_icon_twitter.png" />
+    <Content Include="images\main_menu_button.png" />
+    <Content Include="images\main_menu_icon.png" />
+    <Content Include="images\main_menu_icon_about.png" />
+    <Content Include="images\main_menu_icon_account.png" />
+    <Content Include="images\main_menu_icon_award.png" />
+    <Content Include="images\main_menu_icon_config.png" />
+    <Content Include="images\main_menu_icon_disconnect.png" />
+    <Content Include="images\main_menu_icon_guide.png" />
+    <Content Include="images\main_menu_icon_help.png" />
+    <Content Include="images\main_menu_icon_home.png" />
+    <Content Include="images\main_menu_icon_hover.png" />
+    <Content Include="images\main_menu_ok_button.png" />
+    <Content Include="images\main_menu_ok_button_hover.png" />
+    <Content Include="images\main_menu_return_icon.png" />
+    <Content Include="images\main_menu_return_icon_hover.png" />
+    <Content Include="images\main_menu_search_icon.png" />
+    <Content Include="images\main_menu_search_icon_hover.png" />
+    <Content Include="images\new_flinger_logo_A.svg" />
+    <Content Include="images\new_flinger_logo_B.svg" />
+    <Content Include="images\new_flinger_logo_C.svg" />
+    <Content Include="images\queued_icon.png" />
+    <Content Include="images\search_bar_button_icon.png" />
+    <Content Include="images\search_bar_button_icon_hover.png" />
+    <Content Include="images\send_message_button.png" />
+    <Content Include="images\send_message_button_disabled.png" />
+    <Content Include="images\send_message_button_hover.png" />
+    <Content Include="images\status_is_connected.png" />
+    <Content Include="images\status_not_connected.png" />
+    <Content Include="images\video_thumbnail_blank.png" />
+    <Content Include="images\video_thumbnail_none.png" />
+    <Content Include="images\view_count_icon.png" />
+    <Content Include="index.html" />
+    <Content Include="js\background.js" />
+    <Content Include="js\bcsocket.js" />
+    <Content Include="js\GALocalStorage.js" />
+    <Content Include="js\hammer.js" />
+    <Content Include="js\jquery-animate-css-rotate-scale.js" />
+    <Content Include="js\jquery-css-transform.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.kinetic.js" />
+    <Content Include="js\json.js" />
+    <Content Include="js\responsive.js" />
+    <Content Include="js\script.js" />
+    <Content Include="js\share.js" />
+    <Content Include="js\slider.js" />
+    <Content Include="js\target.js" />
+    <None Include="Package.StoreAssociation.xml" />
+    <Content Include="manifest.json" />
+    <Content Include="style_target.css" />
+    <Content Include="target.html" />
+    <Content Include="css\base-sdk.css" />
+    <Content Include="js\default.js" />
+    <Content Include="sample-utils\sample-utils.css" />
+    <Content Include="sample-utils\footer.html" />
+    <Content Include="sample-utils\header.html" />
+    <Content Include="sample-utils\scenario-select.html" />
+    <Content Include="sample-utils\sample-utils.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.WinJS.1.0, Version=1.0" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
+</Project>

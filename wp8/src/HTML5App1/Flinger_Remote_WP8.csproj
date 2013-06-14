@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9BF8505D-1965-4A29-B629-39046448B5CA}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Flinger_Remote_WP8</RootNamespace>
+    <AssemblyName>Flinger_Remote_WP8</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Flinger_Remote_WP8_Debug_AnyCPU.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>HTML5App1.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Flinger_Remote_WP8_2013_07_03_15_52_53.sap" />
+    <None Include="HTML\font\Eurostile_LT_Bold.eot" />
+    <None Include="HTML\font\Eurostile_LT_Bold.ttf" />
+    <None Include="HTML\font\Eurostile_LT_Bold.woff" />
+    <None Include="HTML\font\Eurostile_LT_Bold_Condensed.eot" />
+    <None Include="HTML\font\Eurostile_LT_Bold_Condensed.ttf" />
+    <None Include="HTML\font\Eurostile_LT_Bold_Condensed.woff" />
+    <None Include="HTML\font\Eurostile_LT_Bold_Extended.eot" />
+    <None Include="HTML\font\Eurostile_LT_Bold_Extended.ttf" />
+    <None Include="HTML\font\Eurostile_LT_Bold_Extended.woff" />
+    <None Include="HTML\font\Eurostile_LT_Bold_Oblique.eot" />
+    <None Include="HTML\font\Eurostile_LT_Bold_Oblique.ttf" />
+    <None Include="HTML\font\Eurostile_LT_Bold_Oblique.woff" />
+    <None Include="HTML\font\Eurostile_LT_Condensed.eot" />
+    <None Include="HTML\font\Eurostile_LT_Condensed.ttf" />
+    <None Include="HTML\font\Eurostile_LT_Condensed.woff" />
+    <None Include="HTML\font\Eurostile_LT_Demi.eot" />
+    <None Include="HTML\font\Eurostile_LT_Demi.ttf" />
+    <None Include="HTML\font\Eurostile_LT_Demi.woff" />
+    <None Include="HTML\font\Eurostile_LT_Demi_Oblique.eot" />
+    <None Include="HTML\font\Eurostile_LT_Demi_Oblique.ttf" />
+    <None Include="HTML\font\Eurostile_LT_Demi_Oblique.woff" />
+    <None Include="HTML\font\Eurostile_LT_Extended.eot" />
+    <None Include="HTML\font\Eurostile_LT_Extended.ttf" />
+    <None Include="HTML\font\Eurostile_LT_Extended.woff" />
+    <None Include="HTML\font\Eurostile_LT_Medium.eot" />
+    <None Include="HTML\font\Eurostile_LT_Medium.ttf" />
+    <None Include="HTML\font\Eurostile_LT_Medium.woff" />
+    <None Include="HTML\font\Eurostile_LT_Oblique.eot" />
+    <None Include="HTML\font\Eurostile_LT_Oblique.ttf" />
+    <None Include="HTML\font\Eurostile_LT_Oblique.woff" />
+    <None Include="HTML\manifest.json" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="110x110.png" />
+    <Content Include="202x202.png" />
+    <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\appbar.back.rest.png" />
+    <Content Include="Assets\AppBar\appbar.next.rest.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileMedium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileMediumLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HTML\apple-touch-icon-114x114-precomposed.png" />
+    <Content Include="HTML\apple-touch-icon-144x144.png" />
+    <Content Include="HTML\apple-touch-icon-57x57-precomposed.png" />
+    <Content Include="HTML\apple-touch-icon-72x72-precomposed.png" />
+    <Content Include="HTML\css\style.css" />
+    <Content Include="HTML\fav-icon-32.png" />
+    <Content Include="HTML\fav-icon-64.png" />
+    <Content Include="HTML\favicon.ico" />
+    <Content Include="HTML\icon_128.png" />
+    <Content Include="HTML\icon_16.png" />
+    <Content Include="HTML\icon_19.png" />
+    <Content Include="HTML\icon_38.png" />
+    <Content Include="HTML\icon_75.png" />
+    <Content Include="HTML\images\blank.png" />
+    <Content Include="HTML\images\button_sprites_dark.png" />
+    <Content Include="HTML\images\button_sprites_light.png" />
+    <Content Include="HTML\images\chat_icon.png" />
+    <Content Include="HTML\images\favicon_placeholder.png" />
+    <Content Include="HTML\images\flinger_co_text_logo.svg" />
+    <Content Include="HTML\images\fling_que_button.png" />
+    <Content Include="HTML\images\fling_que_button_hover.png" />
+    <Content Include="HTML\images\fling_uri_button.png" />
+    <Content Include="HTML\images\fling_uri_button_hover.png" />
+    <Content Include="HTML\images\flung_icon.png" />
+    <Content Include="HTML\images\invite_btn_icon_facebook.png" />
+    <Content Include="HTML\images\invite_btn_icon_googleplus.png" />
+    <Content Include="HTML\images\invite_btn_icon_twitter.png" />
+    <Content Include="HTML\images\main_menu_button.png" />
+    <Content Include="HTML\images\main_menu_icon.png" />
+    <Content Include="HTML\images\main_menu_icon_about.png" />
+    <Content Include="HTML\images\main_menu_icon_account.png" />
+    <Content Include="HTML\images\main_menu_icon_award.png" />
+    <Content Include="HTML\images\main_menu_icon_config.png" />
+    <Content Include="HTML\images\main_menu_icon_disconnect.png" />
+    <Content Include="HTML\images\main_menu_icon_guide.png" />
+    <Content Include="HTML\images\main_menu_icon_help.png" />
+    <Content Include="HTML\images\main_menu_icon_home.png" />
+    <Content Include="HTML\images\main_menu_icon_hover.png" />
+    <Content Include="HTML\images\main_menu_ok_button.png" />
+    <Content Include="HTML\images\main_menu_ok_button_hover.png" />
+    <Content Include="HTML\images\main_menu_return_icon.png" />
+    <Content Include="HTML\images\main_menu_return_icon_hover.png" />
+    <Content Include="HTML\images\main_menu_search_icon.png" />
+    <Content Include="HTML\images\main_menu_search_icon_hover.png" />
+    <Content Include="HTML\images\new_flinger_logo_A.svg" />
+    <Content Include="HTML\images\new_flinger_logo_B.svg" />
+    <Content Include="HTML\images\new_flinger_logo_C.svg" />
+    <Content Include="HTML\images\queued_icon.png" />
+    <Content Include="HTML\images\search_bar_button_icon.png" />
+    <Content Include="HTML\images\search_bar_button_icon_hover.png" />
+    <Content Include="HTML\images\send_message_button.png" />
+    <Content Include="HTML\images\send_message_button_disabled.png" />
+    <Content Include="HTML\images\send_message_button_hover.png" />
+    <Content Include="HTML\images\status_is_connected.png" />
+    <Content Include="HTML\images\status_not_connected.png" />
+    <Content Include="HTML\images\video_thumbnail_blank.png" />
+    <Content Include="HTML\images\video_thumbnail_none.png" />
+    <Content Include="HTML\images\view_count_icon.png" />
+    <Content Include="HTML\index.html" />
+    <Content Include="HTML\js\add2home.js" />
+    <Content Include="HTML\js\background.js" />
+    <Content Include="HTML\js\bcsocket.js" />
+    <Content Include="HTML\js\GALocalStorage.js" />
+    <Content Include="HTML\js\hammer.js" />
+    <Content Include="HTML\js\jquery-animate-css-rotate-scale.js" />
+    <Content Include="HTML\js\jquery-css-transform.js" />
+    <Content Include="HTML\js\jquery.js" />
+    <Content Include="HTML\js\jquery.kinetic.js" />
+    <Content Include="HTML\js\json.js" />
+    <Content Include="HTML\js\responsive.js" />
+    <Content Include="HTML\js\script.js" />
+    <Content Include="HTML\js\share.js" />
+    <Content Include="HTML\js\slider.js" />
+    <Content Include="splash.png" />
+    <Content Include="HTML\tile-image-144.png" />
+    <Content Include="smallTile-sdk.png" />
+    <Content Include="splash-sdk.png" />
+    <Content Include="squareTile-sdk.png" />
+    <Content Include="storeLogo-sdk.png" />
+    <Content Include="tile-sdk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
+  <DefaultLanguage xmlns="" code="en-US" />
+  <Languages xmlns="">
+    <Language code="en-US" />
+  </Languages>
+  <App xmlns="" ProductID="{9bf8505d-1965-4a29-b629-39046448b5ca}" Title="Flinger.co Remote" RuntimeType="Silverlight" Version="1.0.5.4" Genre="apps.normal" Author="Flinger.co" Description="Control any screen from any other screen. Fling YouTube, Vimeo, SlideShare, and pretty much any URL to your big screen with Flinger.co." Publisher="Mote Labs" PublisherID="{5f1546e8-8e53-4870-80e3-e20ba0f8c54b}">
+    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
+    <Capabilities>
+      <Capability Name="ID_CAP_NETWORKING" />
+      <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
+      <Capability Name="ID_CAP_MEDIALIB_PLAYBACK" />
+      <Capability Name="ID_CAP_SENSORS" />
+      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TokenID="HTML5App1Token" TaskName="_default">
+        <TemplateIconic>
+          <SmallImageURI IsResource="false" IsRelative="true">110x110.png</SmallImageURI>
+          <Count>0</Count>
+          <IconImageURI IsResource="false" IsRelative="true">202x202.png</IconImageURI>
+          <Title>Flinger.co Remote</Title>
+          <Message>
+          </Message>
+          <BackgroundColor>#e75f53</BackgroundColor>
+          <HasLarge>True</HasLarge>
+          <LargeContent1>
+          </LargeContent1>
+          <LargeContent2>
+          </LargeContent2>
+          <LargeContent3>
+          </LargeContent3>
+          <DeviceLockImageURI IsResource="false" IsRelative="true">
+          </DeviceLockImageURI>
+        </TemplateIconic>
+      </PrimaryToken>
+    </Tokens>
+    <ScreenResolutions>
+      <ScreenResolution Name="ID_RESOLUTION_WVGA" />
+      <ScreenResolution Name="ID_RESOLUTION_WXGA" />
+      <ScreenResolution Name="ID_RESOLUTION_HD720P" />
+    </ScreenResolutions>
+  </App>
+</Deployment>

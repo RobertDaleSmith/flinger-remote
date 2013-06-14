@@ -1,0 +1,162 @@
+﻿<!--
+THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
+ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
+PARTICULAR PURPOSE.
+
+Copyright (c) Microsoft Corporation. All rights reserved
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Flinger</title>
+
+    <!-- WinJS references -->
+    <link rel="stylesheet" href="//Microsoft.WinJS.1.0/css/ui-light.css" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+    <script src="/js/bcsocket.js"></script>
+    <script src="/js/share.js"></script>
+    <script src="/js/textarea.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style_target.css">
+
+    <!-- SDK sample framework references -->
+    <link rel="stylesheet" href="/sample-utils/sample-utils.css" />
+    <link rel="stylesheet" type="text/css" href="css/target.css" />
+    <script src="/js/target.js"></script>
+</head>
+<body id="appBody" role="application">
+    <div id="rootGrid" class="targetRootGrid">
+        
+        <div id="content">
+            <div class="targetContent">
+                <button name="fling" onclick=flingURI()>Fling</button>
+                
+
+                <strong>Title: </strong><span id="title">(No title)</span><br />
+                <strong>Description: </strong><span id="description">(No description)</span><br />
+                <div id="thumbnailArea" class="hidden"><strong>Thumbnail: </strong><br /><img class="thumbnail" alt="(Thumbnail)" id="thumbnailImage" /><br /></div>
+
+                <br />
+                <h3>Data Package Content</h3>
+
+                <div id="contentValue" >
+                    <div id="htmlContentArea" class="hidden"><strong>HTML: </strong><br /><iframe id="htmlContent" style="width:600px; height:auto; display:none" ></iframe></div>
+                </div>
+                <div id="imageArea" class="hidden"><strong>Bitmap: </strong><br /><img id="imageHolder" style="max-height:200px" /></div>
+
+
+
+
+
+                <textarea id="data">Connecting, please stand by...</textarea>
+            <script>
+                console.log("Hey!")
+                // Debug
+                var debug = document.getElementById("debug");
+                // /Debug
+
+                var prevConnection = false;
+                var prevHasTag = "0000";
+                var data = document.getElementById("data");
+                var docname = document.location.hash.substring(1, 7); // Enter Hashkey - the user's file
+                connectToHash();
+                function uid() {
+                    return ("0000" + (Math.random() * Math.pow(36, 6) << 0).toString(36)).substr(-6)
+                };
+
+                function openDocument(document) {
+                    console.log("Connecting to " + docname);
+
+
+                    if (prevConnection) {
+                        sharejs.open(prevHasTag, 'text', 'http://flinger.cloudapp.net/channel', function (error, shareDocument) {
+                            if (error) {
+                                data.content = error;
+                            } else {
+                                shareDocument.close();
+                                prevConnection = false;
+                            }
+                        });
+                    }
+
+                    sharejs.open(document, 'text', 'http://flinger.cloudapp.net/channel', function (error, shareDocument) {
+                        if (error) {
+                            data.content = error;
+                        } else {
+                            shareDocument.attach_textarea(data);
+                            prevConnection = true;
+                            prevHasTag = document;
+                            // Attaching the ShareJS file to the editor
+                        }
+
+                    });
+                };
+
+                function connectToHash() {
+
+                    //docname = document.getElementById("hashtag").value;
+                    docname = "00ksey";
+                    document.location.hash = docname;
+                    console.log("Tryin to open " + docname);
+                    openDocument(docname);
+
+
+                };
+                
+                function activatedHandler(eventObject) {
+                    // In this sample we only do something if it was activated with the Share contract
+                    if (eventObject.detail.kind === Windows.ApplicationModel.Activation.ActivationKind.shareTarget) {
+                        eventObject.setPromise(WinJS.UI.processAll());
+
+                        // We receive the ShareOperation object as part of the eventArgs
+                        shareOperation = eventObject.detail.shareOperation;
+
+                        // We queue an asychronous event so that working with the ShareOperation object does not
+                        // block or delay the return of the activation handler.
+                        WinJS.Application.queueEvent({ type: "shareready" });
+                    }
+                };
+                WinJS.Application.addEventListener("activated", activatedHandler, false);
+
+                function flingURI() {
+
+
+                    if (shareOperation.data.contains(Windows.ApplicationModel.DataTransfer.StandardDataFormats.uri)) {
+                        shareOperation.data.getUriAsync().done(function (uri) {
+                            document.getElementById("data").innerHTML = uri.rawUri;
+                            document.getElementById("data").select();
+                        });
+                    }
+                    
+
+
+                };
+
+
+                var textArea = document.getElementById("data");
+                var textAreaPrevText = textArea.value;
+                
+            </script>
+
+             <textarea id="hashtag"></textarea>
+            <button name="connect" onclick=connectToHash()>Connect</button>
+
+            
+
+
+                <br /><br /> <br /><br /> <br /><br />
+            </div>
+
+
+
+            
+
+
+        </div>
+    </div>
+</body>
+</html>

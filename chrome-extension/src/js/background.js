@@ -71,7 +71,7 @@ var openDocument = function (docName) {
     console.log("Connecting to " + docname);
 
     //local-testing:  http://localhost:36464/     //online-testing: http://flinger.cloudapp.net/
-    sharejs.open(docname, 'json', 'http://flinger.cloudapp.net/channel', function (error, shareDocument) {
+    sharejs.open(docname, 'json', 'https://flinger-co.herokuapp.com/channel', function (error, shareDocument) {
         $state = shareDocument;
 
         shareDocument.on('change', function (op) {

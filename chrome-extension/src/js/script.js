@@ -894,9 +894,6 @@ var loadInfo = function (videoId) {
 }
 
 var storeInfoTitle = function (info) {
-    console.log("storeInfoTitle!!");
-    console.log(info);
-
     if (!(info && info.items && info.items.length)) return;
 
     var result = info.items[0];
@@ -2048,6 +2045,7 @@ var displayYTSearchResults = function(searchQuery, pageToken){
     $.getJSON("https://www.googleapis.com/youtube/v3/search" + 
         "?q=" + searchQuery + 
         "&order=relevance" + 
+        "&type=video" + 
         (pageToken ? ("&pageToken=" + pageToken) : "") + 
         "&maxResults=" + maxSearchResults + 
         "&key=" + BGP.YT_API_KEY + 

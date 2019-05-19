@@ -14,12 +14,12 @@
 //Detect whether extension or not, then link DOM to background page.
 var pageURl = window.location.href;
 var BGP = null;
-if(pageURl.indexOf("chrome-extension") !== -1) {
+if(pageURl.indexOf("chrome-extension:") !== -1) {
          BGP = chrome.extension.getBackgroundPage();
 } else { BGP = window; }
 
 //Google analytics initialization stuff.
-if (pageURl.indexOf("chrome-extension") !== -1) {
+if (pageURl.indexOf("chrome-extension:") !== -1) {
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-39500794-3']);
     _gaq.push(['_trackPageview']);
@@ -44,7 +44,7 @@ function loadjscssfile(filename, filetype){
     if (typeof fileref!="undefined")
         document.getElementsByTagName("head")[0].appendChild(fileref)
 }
-if ( !(pageURl.indexOf("chrome-extension") !== -1) ) {
+if ( !(pageURl.indexOf("chrome-extension:") !== -1) ) {
     //loadjscssfile("js/bcsocket.js", "js");
     //loadjscssfile("js/share.js", "js");
     //loadjscssfile("js/json.js", "js");
@@ -214,7 +214,7 @@ function disconnectFromHash() {
 
     localStorage.removeItem('saved-hash-id');
     
-    if(pageURl.indexOf("chrome-extension") !== -1)
+    if(pageURl.indexOf("chrome-extension:") !== -1)
         BGP.document.location.reload(true);
 
     disconnectFromChannel();
@@ -521,7 +521,7 @@ function alphaFilterKeypress(evt) {
 
 
 
-//if(pageURl.indexOf("chrome-extension") !== -1) {
+//if(pageURl.indexOf("chrome-extension:") !== -1) {
 //    window.onload = function () {
 //        if (BGP.prevConnection) {  //Restore state for current session.
 //            connectionSuccess();
@@ -1202,7 +1202,7 @@ var initializeUIElements = function () {
     //addToQue("http://www.youtube.com/watch?v=R0X4-2g1zPI", "Continuation Painting with Richard Prince", "YouTube", "http://img.youtube.com/vi/R0X4-2g1zPI/default.jpg");           
 
     //Set correct min-height for popup.
-    if (pageURl.indexOf("chrome-extension") !== -1) {
+    if (pageURl.indexOf("chrome-extension:") !== -1) {
         document.getElementById("body_wrapper").style.minHeight = "480px";
     }
 
@@ -1714,7 +1714,7 @@ var restoreState = function () {
 
 }
 
-//if(pageURl.indexOf("chrome-extension") !== -1) {
+//if(pageURl.indexOf("chrome-extension:") !== -1) {
     addLoadEvent(restoreState);
 //}
 

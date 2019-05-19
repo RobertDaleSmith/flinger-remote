@@ -29,6 +29,7 @@ var remoteName = "Remote" + viewerUid();
 var uiPage = null;
 var timeoutDialogBox = null;
 var newUrl = "";
+var YT_API_KEY = "AIzaSyCdzF0CeKuj-_G70SjcFmO62A7i1RNK_ao";
 
 //Google analytics initialization stuff.
 var _gaq = _gaq || [];
@@ -1070,7 +1071,9 @@ var sendAlert = function (url, type) {
     if (youtube_id != 0) {
         //Is YouTube URL
 
-        $.getJSON('https://gdata.youtube.com/feeds/api/videos/' + youtube_id + '?v=2&alt=jsonc', function (info) {
+        $.getJSON("https://www.googleapis.com/youtube/v3/videos?id=" + youtube_id + "&key=" + YT_API_KEY + "&part=snippet,statistics", function (info) {
+            console.log("info!!");
+            console.log(info);
             sendAlertMessage("\'" + info.data.title + "\' from YouTube", type);
             
         });

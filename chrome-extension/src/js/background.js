@@ -1,6 +1,6 @@
 
 /*         Developed by @RobertDaleSmith founder of @MoteLabs.           
-           ____    ___  @FlingerCo / founders@flinger.co                                                       
+           ____    ___  @FlingerCo / robert@motelabs.com
           /\  _`\ /\_ \    __                                                             
           \ \ \L\_\//\ \  /\_\    ___      __      __   _ __      ___    ___   
            \ \  _\/ \ \ \ \/\ \ /' _ `\  /'_ `\  /'__`\/\`'__\   /'___\ / __`\ 

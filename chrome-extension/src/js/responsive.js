@@ -1,245 +1,190 @@
+
+/*         Developed by @RobertDaleSmith founder of @MoteLabs.           
+           ____    ___  @FlingerCo / founders@flinger.co                                                       
+          /\  _`\ /\_ \    __                                                             
+          \ \ \L\_\//\ \  /\_\    ___      __      __   _ __      ___    ___   
+           \ \  _\/ \ \ \ \/\ \ /' _ `\  /'_ `\  /'__`\/\`'__\   /'___\ / __`\ 
+            \ \ \/   \_\ \_\ \ \/\ \/\ \/\ \L\ \/\  __/\ \ \/ __/\ \__//\ \L\ \
+             \ \_\   /\____\\ \_\ \_\ \_\ \____ \ \____\\ \_\/\_\ \____\ \____/
+              \/_/   \/____/ \/_/\/_/\/_/\/___L\ \/____/ \/_/\/_/\/____/\/___/ 
+                                           /\____/                             
+                                           \_/__/                  (C)(TM)2013
+*/
+
 var bodyWidth  = $(window).width();
 var bodyHeight = $(window).height();
 
-$(window).resize(function() {
-	makeMainResponsive();
-});
+var prevPanelIndex1 = 1;
+var prevPanelIndex2 = 2;
 
-var makeMainResponsive = function () {
+var toggleHomeButtons = function (index) {
+    switch (index) {
+        case 1:
+            $("#home_panel_controls").css("display", "block");
+            //$("#home_control_button").attr("disabled", true);
+            $("#home_control_button").addClass("home_menu_button_disabled1");
+            break;
+        case 2:
+            $("#home_panel_up_next").css("display", "block");
+            //$("#home_up_next_button").attr("disabled", true);
+            $("#home_up_next_button").addClass("home_menu_button_disabled2");
+            break;
+        case 3:
+            $("#home_panel_chat").css("display", "block");
+            //$("#home_chat_button").attr("disabled", true);
+            $("#home_chat_button").addClass("home_menu_button_disabled3");
+            break;
+        case 4:
+            $("#home_panel_invite").css("display", "block");
+            //$("#home_invite_button").attr("disabled", true);
+            $("#home_invite_button").addClass("home_menu_button_disabled4");
+            break;
+    }
+};
+
+var makeHomeResponsive = function () {
 
     bodyWidth = $(window).width();
     bodyHeight = $(window).height();
-    var pageURl = window.location.href;
 
-    //Welcome Page --Start
-    if (bodyWidth > 1095) {
-        document.getElementById('header_container').style.left = 122 + "px";
+    if (bodyWidth >= 1280) {
+        $(".home_panel").width("25%");
 
-        document.getElementById('intro_container').style.left = 122 + "px";
-        document.getElementById('intro_container').style.top = 150 + "px";
-        document.getElementById('intro_container').style.width = 640 + "px";
-        document.getElementById('intro_container').style.height = 300 + "px";
+        toggleHomeButtons(1); toggleHomeButtons(2);
+        toggleHomeButtons(3); toggleHomeButtons(4);
 
-        document.getElementById('hashtag_input').style.width = 271 + "px";
-        document.getElementById('disconnect_button').style.left = 218 + "px";
-        document.getElementById('connect_button').style.left = 243 + "px";
-        document.getElementById('intro_1_text').style.fontSize = 20 + "px";
-        document.getElementById('intro_2_text').style.fontSize = 20 + "px";
-        document.getElementById('intro_2_text').innerHTML = "Enter the 6 digit code that appears on your TV's browser";
-        document.getElementById('intro_tv_url').style.fontSize = 30 + "px";
-        document.getElementById('loaderImage').style.left = 355 + "px";
+        $("#timeSlider_holder").width((bodyWidth / 4) - 30);
 
-        document.getElementById('fling_button').style.top = 64 + "px";
-        document.getElementById('addressBarTextArea').style.width = 550 + "px";
+        $("#address_back_bar_1").width((bodyWidth / 4) - 65);
+        $("#addressBarTextArea").width((bodyWidth / 4) - 135);
 
-        document.getElementById('timeSlider').style.width = 375 + "px";
-        document.getElementById('timeSlider_holder').style.bottom = 30 + "px";
-        document.getElementById('timeSlider_holder').style.left = 75 + "px";
-        document.getElementById('timer_duration_holder').style.left = 75 + "px";
-        document.getElementById('timer_duration_holder').style.bottom = 25 + "px";
-        document.getElementById('timer_duration_holder').style.width = 375 + "px";
+        $("#chat_back_bar_1").width((bodyWidth / 4) - 77);
+        $("#chatBarTextArea").width((bodyWidth / 4) - 79);
 
+        $(".up_next_que_item_title").width((bodyWidth / 4) - 110);
+        $(".up_next_que_item_details").width((bodyWidth / 4) - 110);
+        $(".up_next_que_item_url").width((bodyWidth / 4) - 32);
 
+    } else if (bodyWidth < 1280 && bodyWidth >= 640) {
+        $(".home_panel").width("50%");
 
+        if (!$("input").is(":focus"))
+            $(".home_panel").css("display", "none");
+        //$(".home_menu_button").attr("disabled", false);
+        $(".home_menu_button").removeClass("home_menu_button_disabled1");
+        $(".home_menu_button").removeClass("home_menu_button_disabled2");
+        $(".home_menu_button").removeClass("home_menu_button_disabled3");
+        $(".home_menu_button").removeClass("home_menu_button_disabled4");
 
-        document.getElementById('control_container').style.top = 460 + "px";
-        document.getElementById('control_container').style.left = 122 + "px";
-        document.getElementById('control_container').style.width = 640 + "px";
-        document.getElementById('control_container').style.height = 200 + "px";
+        toggleHomeButtons(prevPanelIndex1);
+        toggleHomeButtons(prevPanelIndex2);
 
-        document.getElementById('channel_info_container').style.left = 770 + "px";
-        document.getElementById('channel_info_container').style.top = 150 + "px";
+        $("#timeSlider_holder").width((bodyWidth / 2) - 30);
 
-        document.getElementById('ad_block').style.left = 770 + "px";
-        document.getElementById('ad_block').style.top = 90 + "px";
+        $("#address_back_bar_1").width((bodyWidth / 2) - 65);
+        $("#addressBarTextArea").width((bodyWidth / 2) - 135);
 
-        document.getElementById('video_info_container').style.left = 770 + "px";
-        document.getElementById('video_info_container').style.top = 360 + "px";
+        $("#chat_back_bar_1").width((bodyWidth / 2) - 77);
+        $("#chatBarTextArea").width((bodyWidth / 2) - 79);
 
-        document.getElementById('header_title').style.fontSize = 55 + "px";
-        document.getElementById('header_logo').style.width = 128 + "px";
-        document.getElementById('header_logo').style.height = 128 + "px";
-        document.getElementById('header_logo').style.backgroundImage = "url(icon_128.png)";
+        $(".up_next_que_item_title").width((bodyWidth / 2) - 110);
+        $(".up_next_que_item_details").width((bodyWidth / 2) - 110);
+        $(".up_next_que_item_url").width((bodyWidth / 2) - 32);
 
-        if (!(pageURl.indexOf("chrome-extension") !== -1)) {
-            document.getElementById('bookmarklet_container').style.top = 25 + "px";
-            document.getElementById('bookmarklet_container').style.right = 25 + "px";
-            document.getElementById('bookmarklet_container').style.left = "";
+    } else if (bodyWidth < 640) {
+
+        if (bodyWidth < 320) { bodyWidth = 320; }
+
+        $(".home_panel").width("100%");
+
+        if (!$("input").is(":focus"))
+            $(".home_panel").css("display", "none");
+
+        if (!$("input").is(":focus")) {
+            //$(".home_menu_button").attr("disabled", false);
+            $(".home_menu_button").removeClass("home_menu_button_disabled1");
+            $(".home_menu_button").removeClass("home_menu_button_disabled2");
+            $(".home_menu_button").removeClass("home_menu_button_disabled3");
+            $(".home_menu_button").removeClass("home_menu_button_disabled4");
+
+            if (prevPanelIndex1 < prevPanelIndex2) {
+                toggleHomeButtons(prevPanelIndex1);
+            } else { toggleHomeButtons(prevPanelIndex2); }
         }
 
-    } else if (bodyWidth <= 1095 && bodyWidth > 995) {
-        document.getElementById('header_container').style.left = 10 + "px";
-        document.getElementById('header_container').style.top = 10 + "px";
 
-        document.getElementById('intro_container').style.left = 10 + "px";
-        document.getElementById('intro_container').style.top = 150 + "px";
-        document.getElementById('intro_container').style.width = 640 + "px";
-        document.getElementById('intro_container').style.height = 300 + "px";
+        $("#timeSlider_holder").width(bodyWidth - 30);
 
-        document.getElementById('hashtag_input').style.width = 271 + "px";
-        document.getElementById('disconnect_button').style.left = 218 + "px";
-        document.getElementById('connect_button').style.left = 243 + "px";
-        document.getElementById('intro_1_text').style.fontSize = 20 + "px";
-        document.getElementById('intro_2_text').style.fontSize = 20 + "px";
-        document.getElementById('intro_2_text').innerHTML = "Enter the 6 digit code that appears on your TV's browser";
-        document.getElementById('intro_tv_url').style.fontSize = 30 + "px";
-        document.getElementById('loaderImage').style.left = 355 + "px";
+        $("#address_back_bar_1").width(bodyWidth - 65);
+        $("#addressBarTextArea").width(bodyWidth - 135);
 
-        document.getElementById('fling_button').style.top = 64 + "px";
-        document.getElementById('addressBarTextArea').style.width = 550 + "px";
+        $("#chat_back_bar_1").width(bodyWidth - 77);
+        $("#chatBarTextArea").width(bodyWidth - 79);
 
-
-        document.getElementById('timeSlider').style.width = 375 + "px";
-        document.getElementById('timeSlider_holder').style.bottom = 30 + "px";
-        document.getElementById('timeSlider_holder').style.left = 75 + "px";
-        document.getElementById('timer_duration_holder').style.left = 75 + "px";
-        document.getElementById('timer_duration_holder').style.bottom = 25 + "px";
-        document.getElementById('timer_duration_holder').style.width = 375 + "px";
+        $(".up_next_que_item_title").width(bodyWidth - 110);
+        $(".up_next_que_item_details").width(bodyWidth - 110);
+        $(".up_next_que_item_url").width(bodyWidth - 32);
+    }
 
 
 
 
-        document.getElementById('control_container').style.top = 460 + "px";
-        document.getElementById('control_container').style.left = 10 + "px";
-        document.getElementById('control_container').style.width = 640 + "px";
-        document.getElementById('control_container').style.height = 200 + "px";
-
-        document.getElementById('channel_info_container').style.left = 658 + "px";
-        document.getElementById('channel_info_container').style.top = 150 + "px";
-
-        document.getElementById('ad_block').style.left = 658 + "px";
-        document.getElementById('ad_block').style.top = 90 + "px";
-
-        document.getElementById('video_info_container').style.left = 658 + "px";
-        document.getElementById('video_info_container').style.top = 360 + "px";
-
-        document.getElementById('header_title').style.fontSize = 55 + "px";
-        document.getElementById('header_logo').style.width = 128 + "px";
-        document.getElementById('header_logo').style.height = 128 + "px";
-        document.getElementById('header_logo').style.backgroundImage = "url(icon_128.png)";
-
-        if (!(pageURl.indexOf("chrome-extension") !== -1)) {
-            document.getElementById('bookmarklet_container').style.top = 25 + "px";
-            document.getElementById('bookmarklet_container').style.right = 25 + "px";
-            document.getElementById('bookmarklet_container').style.left = "";
-        }
-
-    } else if (bodyWidth <= 995 && bodyWidth > 640) {
-        document.getElementById('header_container').style.left = 10 + "px";
-        document.getElementById('header_container').style.top = 10 + "px";
-
-        document.getElementById('intro_container').style.left = 10 + "px";
-        document.getElementById('intro_container').style.top = 50 + "px";
-        document.getElementById('intro_container').style.width = 320 + "px";
-        document.getElementById('intro_container').style.height = 275 + "px";
-
-        document.getElementById('hashtag_input').style.width = 210 + "px";
-        document.getElementById('disconnect_button').style.left = 156 + "px";
-        document.getElementById('connect_button').style.left = 181 + "px";
-        document.getElementById('intro_1_text').style.fontSize = 16 + "px";
-        document.getElementById('intro_2_text').style.fontSize = 16 + "px";
-        document.getElementById('intro_2_text').innerHTML = "Enter the 6 digit code on-screen";
-        document.getElementById('intro_tv_url').style.fontSize = 20 + "px";
-        document.getElementById('loaderImage').style.left = 12 + "px";
-
-        document.getElementById('fling_button').style.top = 8 + "px";
-        document.getElementById('addressBarTextArea').style.width = 285 + "px";
+    if (bodyHeight < 480) {
+        document.getElementById("ad_block").style.display = "none";
+    } else {
+        document.getElementById("ad_block").style.display = "block";
+    }
 
 
-        document.getElementById('timeSlider').style.width = 290 + "px";
-        document.getElementById('timeSlider_holder').style.bottom = 85 + "px";
-        document.getElementById('timeSlider_holder').style.left = 15 + "px";
-        document.getElementById('timer_duration_holder').style.left = 15 + "px";
-        document.getElementById('timer_duration_holder').style.bottom = 80 + "px";
-        document.getElementById('timer_duration_holder').style.width = 290 + "px";
-
-
-        document.getElementById('control_container').style.top = 335 + "px";
-        document.getElementById('control_container').style.left = 10 + "px";
-        document.getElementById('control_container').style.width = 320 + "px";
-        document.getElementById('control_container').style.height = 225 + "px";
-
-        document.getElementById('channel_info_container').style.left = 338 + "px";
-        document.getElementById('channel_info_container').style.top = 50 + "px";
-
-        document.getElementById('ad_block').style.left = 338 + "px";
-        document.getElementById('ad_block').style.top = 0 + "px";
-
-        document.getElementById('video_info_container').style.left = 338 + "px";
-        document.getElementById('video_info_container').style.top = 260 + "px";
-
-        document.getElementById('header_title').style.fontSize = 30 + "px";
-        document.getElementById('header_logo').style.width = 32 + "px";
-        document.getElementById('header_logo').style.height = 32 + "px";
-        document.getElementById('header_logo').style.backgroundImage = "url(fav-icon-32.png)";
-
-        if (!(pageURl.indexOf("chrome-extension") !== -1)) {
-            document.getElementById('bookmarklet_container').style.top = 580 + "px";
-            document.getElementById('bookmarklet_container').style.right = "";
-            document.getElementById('bookmarklet_container').style.left = 10 + "px";
-        }
-
-    } else if (bodyWidth <= 640) {
-        document.getElementById('header_container').style.left = 10 + "px";
-        document.getElementById('header_container').style.top = 60 + "px";
-
-        document.getElementById('intro_container').style.left = 0 + "px";
-        document.getElementById('intro_container').style.top = 100 + "px";
-        document.getElementById('intro_container').style.width = 320 + "px";
-        document.getElementById('intro_container').style.height = 275 + "px";
-
-        document.getElementById('hashtag_input').style.width = 210 + "px";
-        document.getElementById('disconnect_button').style.left = 156 + "px";
-        document.getElementById('connect_button').style.left = 181 + "px";
-        document.getElementById('intro_1_text').style.fontSize = 16 + "px";
-        document.getElementById('intro_2_text').style.fontSize = 16 + "px";
-        document.getElementById('intro_2_text').innerHTML = "Enter the 6 digit code on-screen";
-        document.getElementById('intro_tv_url').style.fontSize = 20 + "px";
-        document.getElementById('loaderImage').style.left = 12 + "px";
-
-        document.getElementById('fling_button').style.top = 8 + "px";
-        document.getElementById('addressBarTextArea').style.width = 285 + "px";
-
-
-        document.getElementById('timeSlider').style.width = 290 + "px";
-        document.getElementById('timeSlider_holder').style.bottom = 85 + "px";
-        document.getElementById('timeSlider_holder').style.left = 15 + "px";
-        document.getElementById('timer_duration_holder').style.left = 15 + "px";
-        document.getElementById('timer_duration_holder').style.bottom = 80 + "px";
-        document.getElementById('timer_duration_holder').style.width = 290 + "px";
-
-
-        document.getElementById('control_container').style.top = 385 + "px";
-        document.getElementById('control_container').style.left = 0 + "px";
-        document.getElementById('control_container').style.width = 320 + "px";
-        document.getElementById('control_container').style.height = 225 + "px";
-
-        document.getElementById('channel_info_container').style.left = 0 + "px";
-        document.getElementById('channel_info_container').style.top = 620 + "px";
-
-        document.getElementById('ad_block').style.left = 0 + "px";
-        document.getElementById('ad_block').style.top = 0 + "px";
-
-        document.getElementById('video_info_container').style.left = 0 + "px";
-        document.getElementById('video_info_container').style.top = 830 + "px";
-
-
-        document.getElementById('header_title').style.fontSize = 30 + "px";
-        document.getElementById('header_logo').style.width = 32 + "px";
-        document.getElementById('header_logo').style.height = 32 + "px";
-        document.getElementById('header_logo').style.backgroundImage = "url(fav-icon-32.png)";
-
-
-        if (!(pageURl.indexOf("chrome-extension") !== -1)) {
-            document.getElementById('bookmarklet_container').style.top = 1142 + "px";
-            document.getElementById('bookmarklet_container').style.right = "";
-            document.getElementById('bookmarklet_container').style.left = 10 + "px";
-        }
-        else { 
-            document.getElementById('body').style.width =  320 + "px";
-            document.getElementById('body').style.height = 377 + "px";        
-        }
+    if (bodyHeight > 320) {
+        $("#up_next_que_container").height(bodyHeight - 90);
 
     }
 
-}
+    $("#chat_conversation_container").height(bodyHeight - 135);
+
+    //On resize set make sure the chat is scrolled to the bottom.
+    var objDiv = document.getElementById("chat_conversation_container");
+    objDiv.scrollTop = objDiv.scrollHeight;
+
+
+    //Keep complete time slider at correct size on a resize event.
+    seekBarWidth = document.getElementById("timeSlider").clientWidth;
+    completedWidth = ((currentTime * (seekBarWidth - 0)) / totalTime).toFixed(3);
+    document.getElementById("timeSlider").getElementsByClassName('complete')[0].style.width = completedWidth + "px";
+    document.getElementById("timeSlider").getElementsByClassName('marker')[0].style.left = completedWidth + "px";
+
+
+
+
+    if ($(window).height() < 455 && $(window).height() >= 390) {
+        document.getElementsByClassName("booms")[0].style.top = ($(window).height() - 455) + 75 + "px";
+        document.getElementsByClassName("booms")[1].style.top = ($(window).height() - 455) + 75 + "px";
+        document.getElementsByClassName("booms")[2].style.top = ($(window).height() - 455) + 75 + "px";
+        document.getElementById("flinger_co_text_logo").style.top = ($(window).height() - 455) + 260 + "px";
+    } else if ($(window).height() < 390) {
+        document.getElementsByClassName("booms")[0].style.top = (390 - 455) + 75 + "px";
+        document.getElementsByClassName("booms")[1].style.top = (390 - 455) + 75 + "px";
+        document.getElementsByClassName("booms")[2].style.top = (390 - 455) + 75 + "px";
+        document.getElementById("flinger_co_text_logo").style.top = (390 - 455) + 260 + "px";
+    } if ($(window).height() >= 455) {
+        document.getElementsByClassName("booms")[0].style.top = ($(window).height() / 2 - 180) + 0 + "px";
+        document.getElementsByClassName("booms")[1].style.top = ($(window).height() / 2 - 180) + 0 + "px";
+        document.getElementsByClassName("booms")[2].style.top = ($(window).height() / 2 - 180) + 0 + "px";
+        document.getElementById("flinger_co_text_logo").style.top = ($(window).height() / 2 - 180) + 185 + "px";
+    }
+
+    if ($(window).height() < 340)
+        document.getElementById("connect_status_instr").style.display = "none";
+    else
+        document.getElementById("connect_status_instr").style.display = "inline-block";
+
+
+
+
+
+
+
+
+
+};

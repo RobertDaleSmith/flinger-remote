@@ -10,7 +10,7 @@
         "default_popup": "index.html?popup"        
   },
   "description": "Fling videos to any screen with Flinger.co",
-  "content_security_policy": "script-src 'self' 'unsafe-eval' https://gdata.youtube.com/ https://www.slideshare.net/ https://vimeo.com/ https://ssl.google-analytics.com; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://www.googleapis.com/ https://www.slideshare.net/ https://vimeo.com/ https://ssl.google-analytics.com; object-src 'self'",
   "manifest_version": 2,
   "background": {   
         "scripts": [  "js/bcsocket.js",                                  

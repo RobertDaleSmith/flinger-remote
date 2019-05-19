@@ -426,7 +426,7 @@ body {
     display: block;
     top   : 0px;
     right : 0px;
-    height: 45px;
+    height: 44px;
     width : 44px;
     background-image: url("../images/search_bar_button_icon.png");
     cursor: pointer;

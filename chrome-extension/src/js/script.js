@@ -890,24 +890,20 @@ var loadInfo = function (videoId) {
     if (document.getElementById("videoData"))
         removeElement("videoData");
 
-    var gdata = document.createElement("script");
-    gdata.src = "https://www.googleapis.com/youtube/v3/videos?id=" + videoId + "&key=" + BGP.YT_API_KEY + "&part=snippet,statistics&callback=storeInfoTitle";
-    gdata.id = "videoData";
-    var body = document.getElementsByTagName("body")[0];
-    body.appendChild(gdata);
-
+    $.getJSON("https://www.googleapis.com/youtube/v3/videos?id=" + videoId + "&key=" + BGP.YT_API_KEY + "&part=snippet,statistics", storeInfoTitle);
 }
 
 var storeInfoTitle = function (info) {
+    console.log("storeInfoTitle!!");
+    console.log(info);
+
     if (!(info && info.items && info.items.length)) return;
 
     var result = info.items[0];
     var snippet = result.snippet;
     var statistics = result.statistics;
-
-    console.log(snippet.title);
     
-    var uploadedDate = info.data.uploaded;
+    var uploadedDate = snippet.publishedAt;
     uploadedDate = uploadedDate.substring(0, 10).replace(/-/g, "/");
 
     document.getElementById("now_playing_video_title").textContent = snippet.title;
@@ -937,11 +933,15 @@ var storeInfoTitle = function (info) {
     // gdata2.id = "channelData";
     // var body = document.getElementsByTagName("body")[0];
     // body.appendChild(gdata2);
-
 }
 
 var storeVidInfoChannelThumb = function (info) {
-    //document.getElementById("now_playing_thumbnail").textContent = "<img src=\"" + info.entry.media$thumbnail.url + "\" id=\"video_thumb_image\">";
+    if (!(info && info.items && info.items.length)) return;
+
+    var result = info.items[0];
+    var snippet = result.snippet;
+
+    document.getElementById("now_playing_thumbnail").textContent = "<img src=\"" + snippet.thumbnails.default.url + "\" id=\"video_thumb_image\">";
 };
 
 var loadSlideInfo = function (slideUrl) {
@@ -1877,10 +1877,6 @@ var setQueItemDetails = function (url, queItemDiv) {
             var statistics = result.statistics;
             var contentDetails = result.contentDetails;
 
-            console.log('setQueItemDetails');
-            console.log(snippet);
-            console.log(contentDetails);
-
             $(queItemDiv).append('<div class="up_next_que_item_title">' + snippet.title + '</div>');
             $(queItemDiv).append('<div class="up_next_que_item_provider">YouTube</div>');
             $(queItemDiv).append('<img src="' + snippet.thumbnails.default.url + '" alt="video_tumbnail" class="up_next_que_item_thumb">');
@@ -1977,6 +1973,7 @@ var setQueItemDetails = function (url, queItemDiv) {
 var searchResultCount = 0;
 var maxSearchResults = 7;
 var searchInputQuery = "";
+var nextPageToken;
 
 var searchYouTube = function () {
 
@@ -1985,7 +1982,7 @@ var searchYouTube = function () {
 
     searchResultCount = 0;
 
-    displayYTSearchResults(searchInputQuery, 1);
+    displayYTSearchResults(searchInputQuery);
 
 
 
@@ -2045,23 +2042,34 @@ var addSearchResult = function (index, thumb, title, provider, views, date, url)
     //});
 }
 
-var displayYTSearchResults = function(searchInputQuery, startIndex){
+var displayYTSearchResults = function(searchQuery, pageToken){
+    nextPageToken = pageToken;
 
-    $.getJSON("https://www.googleapis.com/youtube/v3/videos?q=" + searchInputQuery  + 
-                            "&orderby=relevance&start-index=" + startIndex        + 
-                                              "&max-results=" + maxSearchResults + 
-                                              "&key=" + BGP.YT_API_KEY , function (info) {
-        console.log("displayYTSearchResults!");
-        console.log(info);
-        for (var i = 0; i < info.feed.entry.length-1; i++) {
-            var title = info.feed.entry[i].title.$t,
-               vidURL = info.feed.entry[i].link[0].href,
-                thumb = info.feed.entry[i].media$group.media$thumbnail[0].url,
-                date  = info.feed.entry[i].updated.$t;
+    $.getJSON("https://www.googleapis.com/youtube/v3/search" + 
+        "?q=" + searchQuery + 
+        "&order=relevance" + 
+        (pageToken ? ("&pageToken=" + pageToken) : "") + 
+        "&maxResults=" + maxSearchResults + 
+        "&key=" + BGP.YT_API_KEY + 
+        "&part=snippet", 
+    function (info) {
+        if (!(info && info.items && info.items.length)) return;
+
+        if (info.nextPageToken) nextPageToken = info.nextPageToken;
+
+        for (var i = 0; i < info.items.length-1; i++) {
+            var videoId = info.items[i].id.videoId;
+            var snippet = info.items[i].snippet;
+            var statistics = info.items[i].statistics;
+
+            var title = snippet.title,
+               vidURL = "https://www.youtube.com/watch?v=" + videoId,
+                thumb = snippet.thumbnails.default.url,
+                date  = snippet.publishedAt;
              provider = "YouTube";
 
             var views = 0;
-            try{views = info.feed.entry[i].yt$statistics.viewCount}catch(e){views = 0;};
+            try{views = statistics.viewCount}catch(e){views = 0;};
                         
             if(views <= 0) {
                 views = "";
@@ -2086,7 +2094,6 @@ var displayYTSearchResults = function(searchInputQuery, startIndex){
         $('#search_results_container').append(moreSearchResultDiv);
         $("#search_results_more").click(function () { displayMoreYTSearchResults(); });
 
-
         makeResultTitlesScroll();
 
     });
@@ -2095,8 +2102,7 @@ var displayYTSearchResults = function(searchInputQuery, startIndex){
 
 var displayMoreYTSearchResults = function () {
 
-    var startIndex = searchResultCount + 1;
-    displayYTSearchResults(searchInputQuery, startIndex);
+    displayYTSearchResults(searchInputQuery, nextPageToken);
 
 }
 

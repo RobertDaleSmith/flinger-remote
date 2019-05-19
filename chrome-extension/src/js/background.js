@@ -1072,10 +1072,13 @@ var sendAlert = function (url, type) {
         //Is YouTube URL
 
         $.getJSON("https://www.googleapis.com/youtube/v3/videos?id=" + youtube_id + "&key=" + YT_API_KEY + "&part=snippet,statistics", function (info) {
-            console.log("info!!");
-            console.log(info);
-            sendAlertMessage("\'" + info.data.title + "\' from YouTube", type);
-            
+            if (!(info && info.items && info.items.length)) return;
+
+            var result = info.items[0];
+            var snippet = result.snippet;
+            var statistics = result.statistics;
+
+            sendAlertMessage("\'" + snippet.title + "\' from YouTube", type);
         });
 
     } else if (url.indexOf("slideshare.net") !== -1) {
